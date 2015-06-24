@@ -1,0 +1,30 @@
+How to speed up your clojure build by 10x with boot and ramdisk
+---------------------------------------------------------------
+
+For those us who do not fancy forking and patching clojure with CLJ-703, CLJ-322
+and other compilation improvement patches for building your own projects, which
+are becoming a aot compilation slug, here is a trick to speed up the compilation
+many folds. I have seen a speed up of 11x in a moderately size project of my own.
+
+The basic idea is to make all intermediate build files go to a disk space create
+on ram.
+
+This setup is for boot. boot is awesome! Go get from http://boot-clj.com/
+A few words about boot first. So boot is this new powerful build tooling for
+clojure which has concepts of immutable file sets. In simple words it compiles
+files to a temporary location before actually writing them to the target path.
+
+This is perfect for the ramdisk setup we are going to try.
+
+First (and last) lets set up a moderately size ramdisk and make boot write the
+filesets to ramdisk. You may need sudo.
+
+mkdir -p /mnt/ramdisk
+mount -t tmpfs -o size=128m tmpfs /mnt/ramdisk
+mkdir -p /mnt/ramdisk/tmp
+rm -r ~/.boot/cache/tmp
+ln -s /mnt/ramdisk/tmp ~/.boot/cache/tmp
+
+You are done!
+
+Probably would need some more work to make this persist across restarts though.
