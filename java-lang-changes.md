@@ -1,10 +1,8 @@
 ```java
 /// 10-Oct-2024:
 /// This example intends to cover recent language changes to java
-/// which I have not been fully aware of until recently and have neve
-/// used in production code as well.
-/// This comment itself shows `markdown comment` features we can use with
-/// comments which start with `///`.
+/// which I have not been fully aware of until recently and have never used in production code as well.
+/// This comment itself shows `markdown comment` features we can use with comments which start with `///`.
 /// #### Notable language features covered here:
 /// * record
 /// * switch expression
@@ -12,9 +10,8 @@
 /// * pattern matching
 /// * unnamed variables
 /// * text blocks
-///
 /// post java 11, one can run this with `java FileName.java`, and it will
-/// be compiled to class file in memory before execution.
+/// be compiled to class file in memory before execution!
 
 void main() {                                    // implicit classes and instance level main
 
