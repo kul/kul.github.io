@@ -12,6 +12,9 @@
 /// * pattern matching
 /// * unnamed variables
 /// * text blocks
+///
+/// post java 11, one can run this with `java FileName.java`, and it will
+/// be compiled to class file in memory before execution.
 
 void main() {                                    // implicit classes and instance level main
 
